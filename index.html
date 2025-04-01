@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dane Ahern - Portfolio</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #34495e;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--primary-color);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 60px 0 30px;
+            text-align: center;
+        }
+
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 3px solid var(--secondary-color);
+        }
+
+        .contact-info {
+            margin: 20px 0;
+        }
+
+        .contact-info p {
+            margin: 5px 0;
+        }
+
+        nav {
+            background-color: var(--dark-color);
+            padding: 10px 0;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+
+        section {
+            padding: 60px 0;
+        }
+
+        h1,
+        h2,
+        h3 {
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            border-bottom: 3px solid var(--secondary-color);
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        p {
+            margin-bottom: 15px;
+        }
+
+        .about-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .project-image {
+            height: 180px;
+            background-color: var(--secondary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .project-status {
+            font-size: 0.85rem;
+            color: #777;
+            margin-bottom: 15px;
+            margin-top: -10px;
+        }
+
+        .project-image img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            padding: 20px;
+        }
+
+        .project-content {
+            padding: 20px;
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .project-description {
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .project-link {
+            display: inline-block;
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+
+        .project-link:hover {
+            background-color: var(--primary-color);
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .skill-tag {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+
+        .experience-item {
+            margin-bottom: 40px;
+        }
+
+        .experience-title {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .experience-company {
+            font-size: 1.1rem;
+            color: var(--secondary-color);
+            margin-bottom: 10px;
+        }
+
+        .experience-date {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        button {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 4px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: var(--primary-color);
+        }
+
+        footer {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 60px;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.6rem;
+            }
+
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            .project-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="profile-section">
+                <img class="profile-picture" src="headshot.png" alt="Dane Ahern">
+                <h1>Dane Ahern</h1>
+                <p>Financial Professional & Software Developer</p>
+                <div class="contact-info">
+                    <p>Exeter, NH 03833</p>
+                    <p>Email: <a href="mailto:dane@ryze.ai" style="color: white;">dane@ryze.ai</a></p>
+                    <p>Phone: +1 (603) 812-5654</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Me</h2>
+            <div class="about-content">
+                <p>I am a financial professional with over a decade of experience in accounting, financial management,
+                    and business operations. My passion for problem-solving has led me to software development, where I
+                    build tools that bridge the gap between finance and technology.</p>
+                <p>With a CPA certification and a background spanning from controllership to C-suite leadership, I bring
+                    a unique perspective to development projects that address real-world business challenges. I'm
+                    currently building multiple software solutions aimed at improving efficiency in accounting and
+                    construction industries.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <p>Below are my active development projects. Each represents a different stage of development as I continue
+                to build and improve these solutions.</p>
+
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="Portfolio_RYZE.png" alt="RYZE.AI Logo">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">RYZE.AI</h3>
+                        <p class="project-description">A platform connecting businesses with developers to solve
+                            workflow problems using AI. This platform helps businesses identify opportunities for
+                            automation and efficiency gains. It also allows devlopers to showcase their work to attract
+                            new business.</p>
+                        <p class="project-status"><i>In development</i></p>
+                        <a href="https://www.ryze.ai" target="_blank" class="project-link">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image" style="height: 200px;">
+                        <img src="Portfolio_Clarity.png" alt="Clarity Logo">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Clarity</h3>
+                        <p class="project-description">A powerful financial insights tool that leverages the Intuit API
+                            via OAuth to access financial data, then employs GPT-3.5 Turbo to analyze JSON responses and
+                            deliver actionable insights about key financial statements and metrics.</p>
+                        <p class="project-status"><i>In development</i></p>
+                        <a href="https://clarity.ryze.ai" target="_blank" class="project-link">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="Portfolio_Analytics_Hub.png" alt="Analytics Hub Logo">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Analytics Hub</h3>
+                        <p class="project-description">A sophisticated platform that monitors web traffic and key
+                            performance metrics across websites. Soon to integrate AI capabilities for data
+                            interpretation and automated assistance with tracking code implementation in your codebase.
+                        </p>
+                        <p class="project-status"><i>In development</i></p>
+                        <a href="https://analytics-hub.xyz" target="_blank" class="project-link">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="Portfolio_Column_Combiner.png" alt="Column Combiner Logo">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Column Combiner</h3>
+                        <p class="project-description">An innovative tool utilizing Google Cloud Vision API OCR to
+                            transform screenshots into structured JSON objects, which can then be converted to CSV
+                            files. Ideal for extracting data from applications without native export functionality.</p>
+                        <p class="project-status"><i>In development</i></p>
+                        <a href="https://columncombiner.com" target="_blank" class="project-link">View Project</a>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="Portfolio_GrowthCanvas.png" alt="Growth Canvas Logo">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Growth Canvas</h3>
+                        <p class="project-description">A strategic planning tool designed to help entrepreneurs and
+                            startups make informed decisions about critical aspects of their business including
+                            headcount, funding requirements, and product pricing strategies.</p>
+                        <p class="project-status"><i>In development</i></p>
+                        <a href="https://growthcanvas.xyz" target="_blank" class="project-link">View Project</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills">
+        <div class="container">
+            <h2>Skills</h2>
+
+            <h3>Technical Skills</h3>
+            <div class="skills-list">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">React</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">FastAPI</span>
+                <span class="skill-tag">CSS</span>
+                <span class="skill-tag">Web Development</span>
+            </div>
+
+            <h3>Financial Skills</h3>
+            <div class="skills-list">
+                <span class="skill-tag">Accounting</span>
+                <span class="skill-tag">Financial Analysis</span>
+                <span class="skill-tag">General Ledger</span>
+                <span class="skill-tag">AP/AR</span>
+                <span class="skill-tag">Journal Entries</span>
+                <span class="skill-tag">Financial Reporting</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="experience">
+        <div class="container">
+            <h2>Experience</h2>
+
+            <div class="experience-item">
+                <div class="experience-title">Founder</div>
+                <div class="experience-company">RYZE.ai</div>
+                <div class="experience-date">June 2023 to Present</div>
+                <p>Building automation tools for accounting and construction industries. Connecting businesses with
+                    developers to solve workflow problems using AI technology.</p>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-title">Controller</div>
+                <div class="experience-company">Severino Construction Co., Inc.</div>
+                <div class="experience-date">December 2023 to December 2024</div>
+                <p>Managed all accounting functions for a $50M+ construction company with 180+ employees. Led monthly
+                    and year-end closings, ensuring accuracy and timeliness of financial statements.</p>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-title">Chief Financial Officer (CFO)</div>
+                <div class="experience-company">CW Keller & Associates, Inc.</div>
+                <div class="experience-date">January 2020 to November 2023</div>
+                <p>Oversaw all financial strategy and operations during a period of rapid growth, scaling the company
+                    from 70 to over 100 employees and $15M+ in annual sales.</p>
+            </div>
+
+            <div class="experience-item">
+                <div class="experience-title">Controller</div>
+                <div class="experience-company">CW Keller & Associates, Inc.</div>
+                <div class="experience-date">August 2014 to January 2020</div>
+                <p>Directed day-to-day accounting operations including payroll, AP/AR, monthly close, and financial
+                    reporting for a company growing from 50 to 70 employees.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Dane Ahern</p>
+        </div>
+    </footer>
+</body>
+
+</html>
