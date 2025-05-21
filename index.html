@@ -7,356 +7,7 @@
     <title>Dane Ahern - Portfolio</title>
     <script defer data-domain="daneahern.com" src="https://analytics-hub.xyz/api/tracking/script.js"></script>
     <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <style>
-        :root {
-            --primary-color: #2c3e50;
-            --secondary-color: #3498db;
-            --accent-color: #e74c3c;
-            --light-color: #ecf0f1;
-            --dark-color: #34495e;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: var(--light-color);
-            color: var(--primary-color);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        header {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 60px 0 30px;
-            text-align: center;
-        }
-
-        .profile-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-bottom: 20px;
-        }
-
-        .profile-picture {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 20px;
-            border: 3px solid var(--secondary-color);
-        }
-
-        .contact-info {
-            margin: 20px 0;
-        }
-
-        .contact-info p {
-            margin: 5px 0;
-        }
-
-        nav {
-            background-color: var(--dark-color);
-            padding: 10px 0;
-        }
-
-        nav ul {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-        }
-
-        nav ul li {
-            margin: 0 15px;
-        }
-
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav ul li a:hover {
-            color: var(--secondary-color);
-        }
-
-        section {
-            padding: 60px 0;
-        }
-
-        h1,
-        h2,
-        h3 {
-            margin-bottom: 20px;
-            font-weight: 600;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-        }
-
-        h2 {
-            font-size: 2rem;
-            color: var(--dark-color);
-            border-bottom: 3px solid var(--secondary-color);
-            padding-bottom: 10px;
-            display: inline-block;
-        }
-
-        h3 {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-        }
-
-        p {
-            margin-bottom: 15px;
-        }
-
-        .about-content {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
-        .project-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-
-        .project-card {
-            background-color: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .project-image {
-            height: 180px;
-            background-color: var(--secondary-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .project-status {
-            font-size: 0.85rem;
-            color: #777;
-            margin-bottom: 15px;
-            margin-top: -10px;
-        }
-
-        .project-image img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            padding: 20px;
-        }
-
-        .project-content {
-            padding: 20px;
-        }
-
-        .project-title {
-            font-size: 1.3rem;
-            margin-bottom: 10px;
-            color: var(--dark-color);
-        }
-
-        .project-description {
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        .project-link {
-            display: inline-block;
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 8px 15px;
-            border-radius: 4px;
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s;
-        }
-
-        .project-link:hover {
-            background-color: var(--primary-color);
-        }
-
-        .skills-category {
-            margin-top: 40px;
-            margin-bottom: 20px;
-        }
-
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
-            margin-bottom: 40px;
-        }
-
-        .skill-tag {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 30px;
-            font-size: 1rem;
-            font-weight: 500;
-            display: inline-block;
-        }
-
-        .experience-item {
-            margin-bottom: 40px;
-        }
-
-        .experience-title {
-            font-size: 1.3rem;
-            font-weight: 600;
-            color: var(--dark-color);
-        }
-
-        .experience-company {
-            font-size: 1.1rem;
-            color: var(--secondary-color);
-            margin-bottom: 10px;
-        }
-
-        .experience-date {
-            font-style: italic;
-            color: #666;
-            margin-bottom: 15px;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .form-group {
-            margin-bottom: 20px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 500;
-        }
-
-        input,
-        textarea {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            font-size: 1rem;
-        }
-
-        textarea {
-            height: 150px;
-            resize: vertical;
-        }
-
-        button {
-            background-color: var(--secondary-color);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 4px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        button:hover {
-            background-color: var(--primary-color);
-        }
-
-        footer {
-            background-color: var(--primary-color);
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-            margin-top: 60px;
-        }
-
-        .credential-card {
-            background-color: white;
-            border-radius: 8px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
-            width: 200px;
-            text-align: center;
-        }
-
-        .credential-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-
-        .credential-icon {
-            font-size: 2rem;
-            margin-bottom: 15px;
-            color: var(--secondary-color);
-        }
-
-        .credential-title {
-            font-weight: 500;
-            color: var(--dark-color);
-        }
-
-        .credential-link {
-            text-decoration: none;
-        }
-
-
-
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2rem;
-            }
-
-            h2 {
-                font-size: 1.6rem;
-            }
-
-            nav ul {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            nav ul li {
-                margin: 5px 0;
-            }
-
-            .project-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
@@ -391,18 +42,15 @@
         <div class="container">
             <h2>About Me</h2>
             <div class="about-content">
-                <p>I’m a CPA with a deep appreciation for technology and programming—two passions that have grown
+                <p>I'm a CPA with a deep appreciation for technology and programming—two passions that have grown
                     alongside each other throughout my career. My background in accounting gives me a practical lens for
                     identifying inefficiencies and opportunities, while technology provides the tools to build better
                     solutions for the businesses I serve.</p>
-                <p>We’re living in an extraordinary time where the integration of technology into every aspect of
-                    professional life is accelerating. I’m driven by the potential this creates—not just to keep up, but
+                <p>We're living in an extraordinary time where the integration of technology into every aspect of
+                    professional life is accelerating. I'm driven by the potential this creates—not just to keep up, but
                     to push boundaries. My ongoing pursuit of new technical skills is focused on a clear goal: creating
                     tools that help businesses run smarter, gain clarity through data, and adapt quickly in a changing
                     world.</p>
-
-
-
             </div>
         </div>
     </section>
@@ -410,14 +58,13 @@
     <section id="projects">
         <div class="container">
             <h2>Projects</h2>
-            <p>Below are four financial and analytical tools I’ve developed—each designed to help businesses better
+            <p>Below are four financial and analytical tools I've developed—each designed to help businesses better
                 understand their data, streamline operations, and make smarter decisions. These projects reflect my
                 foundation as an accountant and my ongoing commitment to expanding that expertise through technology.
             </p>
             <p>The most significant of these is the Free RYZE Developer Platform—a space I created not only to showcase
-                my own tools, but also to support other developers building innovative solutions. It’s where accounting,
+                my own tools, but also to support other developers building innovative solutions. It's where accounting,
                 AI, and software come together to solve real-world business problems.</p>
-
 
             <div class="project-grid">
                 <div class="project-card">
@@ -465,8 +112,6 @@
                     </div>
                 </div>
 
-
-
                 <div class="project-card">
                     <div class="project-image">
                         <img src="Portfolio_Column_Combiner.png" alt="Column Combiner Logo">
@@ -494,6 +139,7 @@
                         <a href="https://growthcanvas.xyz" target="_blank" class="project-link">View Project</a>
                     </div>
                 </div>
+
                 <div class="project-card">
                     <div class="project-image">
                         <img src="Portfolio_Pitches.png" alt="RYZE.ai Pitches">
@@ -513,7 +159,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
@@ -522,7 +167,7 @@
         <div class="container">
             <h2>Skills</h2>
 
-            <h3 class="skills-category">Technical Skills</h3>
+            <h3 class="section-subtitle">Technical Skills</h3>
             <div class="skills-list">
                 <span class="skill-tag">Python</span>
                 <span class="skill-tag">React</span>
@@ -531,11 +176,9 @@
                 <span class="skill-tag">CSS</span>
                 <span class="skill-tag">Linux Server Management</span>
                 <span class="skill-tag">CLI - Terminal Proficiency</span>
-
             </div>
 
-
-            <h3 class="skills-category">Financial Skills</h3>
+            <h3 class="section-subtitle">Financial Skills</h3>
             <div class="skills-list">
                 <span class="skill-tag">Accounting</span>
                 <span class="skill-tag">Financial Analysis</span>
@@ -560,7 +203,6 @@
                     project-posting and support portal.</p>
             </div>
 
-
             <div class="experience-item">
                 <div class="experience-title">Controller</div>
                 <div class="experience-company">Severino Construction Co., Inc.</div>
@@ -576,8 +218,6 @@
                 <p>Oversaw all financial strategy and operations during a period of rapid growth, scaling the company
                     from 50 to over 100 employees and $15M+ in annual sales.</p>
             </div>
-
-
         </div>
     </section>
 
@@ -603,26 +243,23 @@
                 <div class="experience-date">1997 to 2001</div>
             </div>
 
+            <h3 class="section-subtitle">Credentials & Certifications</h3>
+            <div class="credentials-grid">
+                <a href="CPA_LICENSE.png" target="_blank" class="credential-link">
+                    <div class="credential-card">
+                        <div class="credential-icon">📄</div>
+                        <div class="credential-title">CPA License</div>
+                    </div>
+                </a>
+                <a href="Coding_Bootcamp.png" target="_blank" class="credential-link">
+                    <div class="credential-card">
+                        <div class="credential-icon">🖥️</div>
+                        <div class="credential-title">Coding Bootcamp Certificate</div>
+                    </div>
+                </a>
+            </div>
         </div>
     </section>
-
-    <div class="credentials-container" style="margin-top: 30px;">
-        <h3 class="skills-category">Credentials & Certifications</h3>
-        <div style="display: flex; gap: 20px; flex-wrap: wrap; margin-top: 20px;">
-            <a href="CPA_LICENSE.png" target="_blank" class="credential-link">
-                <div class="credential-card">
-                    <div class="credential-icon">📄</div>
-                    <div class="credential-title">CPA License</div>
-                </div>
-            </a>
-            <a href="Coding_Bootcamp.png" target="_blank" class="credential-link">
-                <div class="credential-card">
-                    <div class="credential-icon">🖥️</div>
-                    <div class="credential-title">Coding Bootcamp Certificate</div>
-                </div>
-            </a>
-        </div>
-    </div>
 
     <footer>
         <!-- <div class="container">
